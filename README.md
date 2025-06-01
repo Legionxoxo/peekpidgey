@@ -1,21 +1,16 @@
-Here's your modified **Event Alert Platform** README with icons, logos, and enhanced visual appeal using Markdown-supported emojis and badges. This version is ready for platforms like GitHub:
-
 ---
-
 <h1 align="center">🚨 Event Alert Platform with Discord Integration</h1>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Backend-Hono.js-007ACC?style=flat&logo=javascript&logoColor=white" />
-  <img src="https://img.shields.io/badge/Frontend-Next.js-black?style=flat&logo=next.js" />
-  <img src="https://img.shields.io/badge/Database-PostgreSQL-336791?style=flat&logo=postgresql&logoColor=white" />
-  <img src="https://img.shields.io/badge/Payments-Stripe-635BFF?style=flat&logo=stripe&logoColor=white" />
+<img src="https://img.shields.io/badge/Backend-Hono.js-007ACC?style=flat&logo=javascript&logoColor=white" />
+<img src="https://img.shields.io/badge/Frontend-Next.js-black?style=flat&logo=next.js" />
+<img src="https://img.shields.io/badge/Database-PostgreSQL-336791?style=flat&logo=postgresql&logoColor=white" />
+<img src="https://img.shields.io/badge/Payments-Stripe-635BFF?style=flat&logo=stripe&logoColor=white" />
 </p>
 
 <p align="center">
-  <a href="https://peekpidgey.netlify.app/"><strong>🌐 Live Demo</strong></a> •
-  <a href="https://github.com/Legionxoxo/event-alert-discord-platform"><strong>📦 Source Code</strong></a>
+<a href="https://peekpidgey.netlify.app/"><strong>🌐 Live Demo</strong></a> •
 </p>
-
 ---
 
 ## ✨ Features
@@ -93,5 +88,3 @@ Got questions or ideas? Let's connect!
 - 🔗 LinkedIn: [shiv04singh](https://www.linkedin.com/in/shiv04singh)
 
 ---
-
-Let me know if you want a logo or badge image designed for the project — I can generate one based on your theme.
