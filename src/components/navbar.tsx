@@ -5,6 +5,7 @@ import { SignOutButton } from '@clerk/nextjs'
 import { Button, buttonVariants } from './ui/button'
 import { ArrowRight } from 'lucide-react'
 import { currentUser } from '@clerk/nextjs/server'
+import Image from 'next/image'
 
 export const Navbar = async () => {
     const user = await currentUser()
@@ -13,8 +14,15 @@ export const Navbar = async () => {
         <nav className='sticky z-[100] h-16 inset-x-0 top-0 w-full border-b border-gray-200 bg-white/80 backdrop-blur-lg transition-all'>
             <MaxWidthWrapper>
                 <div className='flex h-16 items-center justify-between'>
-                    <Link href="/" className='flex z-40 font-semibold'>
-                        Peek <span className='text-brand-700'>Pidgey</span>
+                    <Link href="/" className="flex items-center z-40 font-semibold">
+                        <Image
+                            src="/brand-asset-profile.png"
+                            alt="Brand Asset Profile"
+                            width={32}
+                            height={32}
+                            className="rounded-full mr-3"
+                        />
+                        Peek <span className="text-brand-700 ml-1">Pidgey</span>
                     </Link>
 
                     <div className='h-full flex items-center space-x-4'>
