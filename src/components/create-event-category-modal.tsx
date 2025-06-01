@@ -12,6 +12,7 @@ import { Input } from './ui/input'
 import { Label } from './ui/label'
 import { Modal } from './ui/modal'
 import { client } from '@/lib/client'
+import EventPicture from './ui/event-picture'
 
 
 const EVENT_CATEGORY_VALIDATOR = z.object({
@@ -47,11 +48,13 @@ const EMOJI_OPTIONS = [
     { emoji: "🔔", label: "Notification" },
 ]
 
+
 interface CreateEventCategoryModel extends PropsWithChildren {
     containerClassName?: string
 }
 
 const CreateEventCategoryModal = ({ children }: PropsWithChildren) => {
+
     const [isOpen, setIsOpen] = useState(false)
     const queryClient = useQueryClient()
 
@@ -112,9 +115,12 @@ const CreateEventCategoryModal = ({ children }: PropsWithChildren) => {
                             {errors.color ? <p className='mt-1 text-sm text-red-500'>{errors.color.message}</p> : null}
                         </div>
 
+                        {/* profile selection */}
+                        <EventPicture />
+
                         {/* emoji selection */}
                         <div>
-                            <Label>Color</Label>
+                            <Label>Emoji</Label>
                             <div className='flex flex-wrap gap-3'>
                                 {EMOJI_OPTIONS.map(({ emoji, label }) => (
                                     <button key={emoji} type='button' className={cn('size-10 flex items-center justify-center text-xl transition-all rounded-md',
@@ -127,6 +133,8 @@ const CreateEventCategoryModal = ({ children }: PropsWithChildren) => {
                             </div>
                             {errors.emoji ? <p className='mt-1 text-sm text-red-500'>{errors.emoji.message}</p> : null}
                         </div>
+
+
                     </div>
 
                     <div className='flex justify-end space-x-3 pt-4 border-t'>

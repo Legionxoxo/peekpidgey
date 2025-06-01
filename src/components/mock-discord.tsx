@@ -73,13 +73,13 @@ export const MockDiscordUI = ({ children }: PropsWithChildren) => {
 
                         <div className="flex items-center px-2 py-1.5 rounded bg-[#393c43] text-white cursor-pointer">
                             <Image
-                                src="/brand-asset-profile-picture.png"
+                                src="/brand-asset-profile.png"
                                 alt="PingPanda Avatar"
                                 width={32}
                                 height={32}
                                 className="object-cover rounded-full mr-3"
                             />
-                            <span className="font-medium">PingPanda</span>
+                            <span className="font-medium">PeekPidgey</span>
                         </div>
 
                         <div className="my-1 space-y-px">
@@ -123,7 +123,7 @@ export const MockDiscordUI = ({ children }: PropsWithChildren) => {
 
                     <div className=" flex items-center">
                         <div className="relative">
-                            <Image src='/brand-asset-profile-picture.png' alt="avatar" height={40} width={40} className="object-cover rounded-full mr-3" />
+                            <Image src='/brand-asset-profile.png' alt="avatar" height={40} width={40} className="object-cover rounded-full mr-3" />
                             <div className="absolute bottom-0 right-3 size-3 bg-green-500 rounded-full border-2 border-[#36393f]" />
                         </div>
 

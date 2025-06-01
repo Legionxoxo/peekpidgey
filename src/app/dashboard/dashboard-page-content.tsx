@@ -10,10 +10,20 @@ import { ArrowRight, BarChart2, Clock, Database, DatabaseIcon, Trash2 } from "lu
 import Link from "next/link"
 import { useState } from "react"
 import DashboardEmptyState from "./dashboard-empty-state"
+import EventPicture from "@/components/ui/event-picture"
+import { Label } from "@/components/ui/label"
 
 
-
+const EVENT_PICTURES = [
+    { src: "/peekingpidgey/logo-bulbasaur.png", label: "logo1" },
+    { src: "/peekingpidgey/logo-nidoran.png", label: "logo2" },
+    { src: "/peekingpidgey/logo-pichu.png", label: "logo3" },
+    { src: "/peekingpidgey/logo-poliwal.png", label: "logo4" },
+    { src: "/peekingpidgey/logo-puff.png", label: "logo5" },
+]
 export const DashboardPageContent = () => {
+    const [pictureModal, setPictureModal] = useState(false)
+    const [selectedPicture, setSelectedPicture] = useState<string | null>(null);
     const [deletingCategory, setDeleteCategory] = useState<string | null>(null)
     const queryClient = useQueryClient()
 
@@ -27,7 +37,6 @@ export const DashboardPageContent = () => {
             return categories
         }
     })
-
     /* delete category */
     const { mutate: deleteCategory, isPending: isDeletingCategory } = useMutation({ /* like post request */
         mutationFn: async (name: string) => {
@@ -60,15 +69,37 @@ export const DashboardPageContent = () => {
                     <div className="pointer-events-none z-0 absolute inset-px rounded-lg shadow-sm transition-all duration-300 group-hover:shadow-md ring-1 ring-black/5" />
 
                     <div className="relative p-6 z-10">
-                        <div className="flex items-center gap-4 mb-6">
+                        <div className="flex items-center gap-4 mb-6 ">
                             <div
-                                className="size-12 rounded-full"
+                                onClick={() => setPictureModal(!pictureModal)}
+                                className="size-12 rounded-full cursor-pointer flex flex-col items-center justify-center"
                                 style={{
                                     backgroundColor: category.color
                                         ? `#${category.color.toString(16).padStart(6, "0")}`
                                         : "#f3f4f6",
                                 }}
-                            />
+                            >
+                                {/* Display the selected picture above the color circle */}
+                                {selectedPicture && (
+                                    <img
+                                        src={selectedPicture}
+                                        alt="Selected Event"
+                                        className="w-12 h-12 object-cover rounded-full mb-2" // Margin to space it from the color circle
+                                    />
+                                )}
+                                {/* Color circle */}
+                                <div
+                                    className={`w-12 h-12 rounded-full ${!selectedPicture ? "bg-gray-300" : ""}`}
+                                    style={{
+                                        backgroundColor: selectedPicture
+                                            ? "transparent" // Make the color circle transparent if an image is selected
+                                            : category.color
+                                                ? `#${category.color.toString(16).padStart(6, "0")}`
+                                                : "#f3f4f6",
+                                    }}
+                                />
+                            </div>
+
 
                             <div>
                                 <h3 className="text-lg/7 font-medium tracking-tight text-gray-950">
@@ -144,6 +175,37 @@ export const DashboardPageContent = () => {
                     </div>
                 </div>
 
+            </Modal>
+
+            {/* picture modal */}
+            <Modal showModal={pictureModal} setShowModal={() => setPictureModal(false)} className="max-w-md p-8 z-10">
+                <div className="space-y-6">
+
+                    <div>
+                        <Label>Select Event Picture</Label>
+                        <div className="flex flex-wrap gap-3 mt-2">
+                            {EVENT_PICTURES.map(({ src, label }, index) => (
+                                <button
+                                    key={index}
+                                    type="button"
+                                    className={`size-10 flex items-center justify-center text-xl transition-all rounded-md ${selectedPicture === src ? "bg-brand-100 ring-2 ring-brand-700 scale-110" : "bg-brand-100 hover:bg-brand-200"
+                                        }`}
+                                    onClick={() => setSelectedPicture(src)}
+                                >
+                                    <img src={src} alt={label} className="w-8 h-8 object-cover rounded-full" />
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+                    <div className="flex justify-end space-x-3 border-t">
+                        <Button variant="outline" onClick={() => setPictureModal(false)}>
+                            Cancel
+                        </Button>
+                        <Button variant="destructive" onClick={() => setSelectedPicture(selectedPicture)}>
+                            Done
+                        </Button>
+                    </div>
+                </div>
             </Modal>
         </>
 

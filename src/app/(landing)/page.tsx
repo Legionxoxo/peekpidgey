@@ -73,20 +73,20 @@ const page = () => {
             <div className='-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4'>
               <MockDiscordUI>
                 <AnimatedList>
-                  <DiscordMessage avatarSrc='/brand-asset-profile-picture.png' avatarAlt='Peekegion avatar' username='PeekPidgey'
+                  <DiscordMessage avatarSrc='/brand-asset-profile.png' avatarAlt='Peekegion avatar' username='PeekPidgey'
                     timestamp='Today at 4:34Am' badgeText='Time to peek' badgeColor='#43b581' title='🤖 New user peeked'
                     content={{
                       name: 'Tushar bihari',
                       email: "ogbihari@bihar.in"
                     }} />
-                  <DiscordMessage avatarSrc='/brand-asset-profile-picture.png' avatarAlt='Peekegion avatar' username='PeekPidgey'
+                  <DiscordMessage avatarSrc='/brand-asset-profile.png' avatarAlt='Peekegion avatar' username='PeekPidgey'
                     timestamp='Today at 9:34Am' badgeText='New Peek' badgeColor='#faa61a' title='🌟 New milestone'
                     content={{
                       users: '500',
                       subscribed: '200',
                       membership: "Yearly",
                     }} />
-                  <DiscordMessage avatarSrc='/brand-asset-profile-picture.png' avatarAlt='Peekegion avatar' username='PeekPidgey'
+                  <DiscordMessage avatarSrc='/brand-asset-profile.png' avatarAlt='Peekegion avatar' username='PeekPidgey'
                     timestamp='Today at 11:34Am' badgeText='Need fix' badgeColor='#5865f2' title='⚙️ Critical issue'
                     content={{
                       issue: 'DDoS attack',
